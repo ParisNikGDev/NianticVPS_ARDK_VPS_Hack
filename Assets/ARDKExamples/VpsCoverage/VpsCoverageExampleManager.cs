@@ -37,7 +37,7 @@ namespace ARDKExamples.VpsCoverage
     private ICoverageClient _coverageClient;
     private ILocationService _locationService;
 
-    void Awake()
+    public void init()
     {
       // This is necessary for setting the user id associated with the current user. 
       // We strongly recommend generating and using User IDs. Accurate user information allows

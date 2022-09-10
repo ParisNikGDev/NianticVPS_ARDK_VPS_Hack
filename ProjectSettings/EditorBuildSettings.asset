@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ARDKExamples/ContextAwareness/Meshing/MeshingSemantics.unity
-    guid: cccc54269e5094071992b7e1aa2901b6
+    path: Assets/Scenes/F4_MainScene.unity
+    guid: 173a2ece4d7925746a2f45b6440df94f
+  - enabled: 0
+    path: Assets/ARDKExamples/ContextAwareness/Meshing/Meshing.unity
+    guid: 5f23a8470b465422cb097c10aa71e80d
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
