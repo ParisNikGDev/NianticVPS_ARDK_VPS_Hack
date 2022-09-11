@@ -18,6 +18,7 @@ using Niantic.ARDKExamples.WayspotAnchors;
 
 public class WayspotAnchorController : MonoBehaviour
 {
+    public static bool spaymode = false; 
     [Tooltip("The anchor that will be placed")]
     [SerializeField]
     private GameObject _anchorPrefab;
@@ -96,17 +97,22 @@ public class WayspotAnchorController : MonoBehaviour
         if (touchSuccess)
         {
             if (_wayspotAnchorService.LocalizationState == LocalizationState.Localized)
-            //PlaceAnchor(localPose); //Create the Wayspot Anchor and place the GameObject
+             //Create the Wayspot Anchor and place the GameObject
             {
-                anchor.GetComponentInChildren<Renderer>().transform.LookAt(_camera.transform);
-                PlaceAnchor(
-              Matrix4x4.TRS
-              (
-                _camera.transform.position+(_camera.transform.forward*0.5f),
-                _camera.transform.rotation,
-                Vector3.one
-              ));
-                ////////Create the Wayspot Anchor and place the GameObject
+                if (spaymode) {
+                    PlaceAnchor(localPose);
+                }
+                else
+                {
+                    anchor.GetComponentInChildren<Renderer>().transform.LookAt(_camera.transform);
+                    PlaceAnchor(
+                  Matrix4x4.TRS
+                  (
+                    _camera.transform.position + (_camera.transform.forward * 0.5f),
+                    _camera.transform.rotation,
+                    Vector3.one
+                  ));
+                }
             }
             else
                 _statusLog.text = "Must localize before placing anchor.";

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnchorScreenToWorld : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class AnchorScreenToWorld : MonoBehaviour
     public Texture newText;
     public GameObject curved;
     public GameObject straight;
-
+    public GameObject spray;
+    public Button btn;
     public Renderer rend;
 
     // Start is called before the first frame update
@@ -38,7 +40,27 @@ public class AnchorScreenToWorld : MonoBehaviour
         rend = curved.GetComponentInChildren<Renderer>();
         init = true;
     }
-
+    public void SprayMode(bool a)
+    {
+        if (a)
+        {
+            straight.SetActive(false);
+            curved.SetActive(false);
+            spray.SetActive(true);
+            btn.onClick.AddListener(()=>throwSpray());
+        }
+        else
+        {
+            straight.SetActive(true);
+            curved.SetActive(true);
+            spray.SetActive(false);
+            btn.onClick.RemoveAllListeners();
+        }
+    }
+    private void throwSpray()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
